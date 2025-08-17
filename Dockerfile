@@ -5,12 +5,13 @@ FROM python:3.9-slim
 WORKDIR /app
 
 
-COPY . .
+COPY . /app
+
+
+RUN pip install --no-cache-dir -r requirements.txt
 
 
 EXPOSE 8888
 
-
-RUN if [ -f "requirements.txt" ]; then pip install -r requirements.txt; fi
-
 CMD ["python", "app.py"]
+
